@@ -114,3 +114,29 @@ https://github.com/sourabhsk24
 ## Project
 
 This project was developed as part of the CodeAlpha Internship - Task 1: Simple E-commerce Store.
+
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### Product Details
+![Product Details](screenshots/product-details.png)
+
+### Shopping Cart
+![Shopping Cart](screenshots/cart.png)
+
+### User Registration
+![User Registration](screenshots/register.png)
+
+### Login
+![Login](screenshots/login.png)
+
+### Checkout
+![Checkout](screenshots/checkout.png)
+
+### Order Confirmation
+![Order Confirmation](screenshots/order-confirmation.png)
+
+### My Orders
+![My Orders](screenshots/my-orders.png)
