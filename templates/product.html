@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Product Details - ShopZone</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+    <link
+          rel="stylesheet"
+          href="{% static 'css/product.css' %}"
+>
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            ShopZone
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/">Products</a>
+            <a href="#">Cart 🛒</a>
+            <a href="#">Login</a>
+        </nav>
+
+    </header>
+
+
+    <main class="product-details-page">
+
+        <a href="/" class="back-link">
+            ← Back to Products
+        </a>
+
+
+        <div
+            id="product-detail-container"
+            class="product-detail"
+        >
+
+            <p>Loading product...</p>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const productId = "{{ product_id }}";
+
+    </script>
+
+
+    <script src="{% static 'js/product.js' %}"></script>
+
+</body>
+
+</html>

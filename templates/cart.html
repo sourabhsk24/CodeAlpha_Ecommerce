@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shopping Cart - ShopZone</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/cart.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            ShopZone
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/">Products</a>
+            <a href="/cart/">Cart 🛒
+                <span id="cart-count">0</span>
+            </a>
+            <a href="#">Login</a>
+        </nav>
+
+    </header>
+
+
+    <main class="cart-page">
+
+        <h1>Shopping Cart</h1>
+
+
+        <div id="cart-container">
+
+            <p>Loading cart...</p>
+
+        </div>
+
+    </main>
+
+
+    <script src="{% static 'js/cart.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Orders - ShopZone</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/orders.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            ShopZone
+        </div>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/">
+                Products
+            </a>
+
+            <a href="/cart/">
+                Cart 🛒
+            </a>
+
+            <a href="/orders/">
+                My Orders
+            </a>
+
+            <a href="/logout/">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="orders-page">
+
+        <h1>
+            My Orders
+        </h1>
+
+
+        {% if orders %}
+
+            <div class="orders-list">
+
+                {% for order in orders %}
+
+                    <div class="order-history-card">
+
+                        <div class="order-header">
+
+                            <div>
+
+                                <h2>
+                                    Order #{{ order.id }}
+                                </h2>
+
+                                <p>
+                                    {{ order.created_at|date:"d M Y, h:i A" }}
+                                </p>
+
+                            </div>
+
+
+                            <span class="order-status">
+                                {{ order.get_status_display }}
+                            </span>
+
+                        </div>
+
+
+                        <div class="order-items">
+
+                            {% for item in order.items.all %}
+
+                                <div class="order-item">
+
+                                    <span>
+                                        {{ item.product.name }}
+                                    </span>
+
+                                    <span>
+                                        × {{ item.quantity }}
+                                    </span>
+
+                                    <strong>
+                                        ₹{{ item.subtotal }}
+                                    </strong>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <div class="order-footer">
+
+                            <strong>
+                                Total: ₹{{ order.total_amount }}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="no-orders">
+
+                <h2>
+                    No orders yet
+                </h2>
+
+                <p>
+                    You haven't placed any orders.
+                </p>
+
+                <a href="/">
+                    Start Shopping
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>

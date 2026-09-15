@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopZone - Online Store</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            ShopZone
+        </div>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/">
+                Products
+            </a>
+
+            <a href="/cart/">
+                Cart 🛒
+            </a>
+
+
+            {% if user.is_authenticated %}
+
+            <a href="/orders/">
+                My Orders
+            </a>
+
+            <span class="welcome-user">
+                Hi, {{ user.username }}
+            </span>
+
+            <a href="/logout/">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="/login/">
+                Login
+            </a>
+
+            <a href="/register/">
+                Register
+            </a>
+
+        {% endif %}
+
+        </nav>
+        
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+            <h1>Discover Amazing Products</h1>
+            <p>Shop quality products at great prices.</p>
+        </section>
+
+
+        <section class="products-section">
+
+            <h2>Our Products</h2>
+
+            <div id="products-container" class="products-grid">
+                <p>Loading products...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 ShopZone. All rights reserved.</p>
+    </footer>
+
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+</body>
+</html>

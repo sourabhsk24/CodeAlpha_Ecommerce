@@ -1,0 +1,179 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Order Confirmed - ShopZone</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/order.css' %}"
+    >
+
+</head>
+
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            ShopZone
+        </div>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/">
+                Products
+            </a>
+
+            <a href="/cart/">
+                Cart 🛒
+            </a>
+
+            <a href="/logout/">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="order-page">
+
+        <div class="order-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <h1>
+                Order Placed Successfully!
+            </h1>
+
+
+            <p class="thank-you">
+                Thank you for shopping with ShopZone.
+            </p>
+
+
+            <div class="order-info">
+
+                <div class="info-row">
+
+                    <span>
+                        Order Number
+                    </span>
+
+                    <strong>
+                        #{{ order.id }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Order Total
+                    </span>
+
+                    <strong>
+                        ₹{{ order.total_amount }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong>
+                        {{ order.get_status_display }}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong>
+                        {{ order.phone }}
+                    </strong>
+
+                </div>
+
+
+                <div class="address">
+
+                    <strong>
+                        Shipping Address
+                    </strong>
+
+                    <p>
+                        {{ order.shipping_address }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-actions">
+               <a
+                    href="/"
+                    class="primary-button"
+               >
+                    Continue Shopping
+               </a>
+
+               <a
+                    href="/orders/"
+                    class="secondary-button"
+               >
+                    View My Orders
+               </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        localStorage.removeItem("cart");
+
+    </script>
+
+</body>
+
+</html>
